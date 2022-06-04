@@ -16,7 +16,7 @@
 #
 # Changelog:
 # v1.0 03/06/2022, gabriel:
-#     - Lorem ipsum
+#     - Initial commit
 #
 # License: CC-BY-4.0
 #
