@@ -34,7 +34,7 @@ popd() {
 pushd "assets/"
 
 pushd "walls/"
-for img in *.png; do
+for img in *{.png,.jpg}; do
   IMG_RES_W=$(identify -format '%w' ${img})
   IMG_RES_H=$(identify -format '%h' ${img})
   popd
