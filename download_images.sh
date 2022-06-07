@@ -46,7 +46,18 @@ if [ -e "${FILE}" ]; then
   while read line; do
     LINK="${line}"
     pushd "assets/walls"
-    CODE=$(curl "${LINK}" -s -w '%{http_code}' -O)
+
+    # If file have extension ...
+    if $(echo "${LINK}" | grep -Eq '\.(png|jpg)'); then
+      CODE=$(curl "${LINK}" -s -w '%{http_code}' -O)
+
+    else # If file does not have extension ...
+
+      FILE_NAME=$(echo ${LINK} | grep -Eo '[^/]+$')
+      FILE_NAME="${FILE_NAME}.png"
+      CODE=$(curl "${LINK}" -s -w '%{http_code}' -o "${FILE_NAME}")
+
+    fi
 
     if [[ "$CODE" =~ ^2 ]]; then
       echo "SUCESS - ${LINK}"
