@@ -1,7 +1,9 @@
-# void artwork
+# Void artwork
 This repo contains a collection of wallpapers and logos for Gnu/Void linux.
 
 WIP!!
+
+**You can find all Backgrounds in `assets/`**
 
 ## Credits to:
 - https://github.com/siduck76 ( made some walls too :p)
@@ -13,12 +15,13 @@ WIP!!
 - Some Wallpapers from:
 https://wallpaperaccess.com/abstract-linux and https://wallpaperaccess.com/void-linux
 
-## Workflow:
+## Contributing:
 
-### Downloading images:
-1. You can download manually or with download_images.sh script
+### Download and organize:
+1. You can download manually or use `download_images.sh` script
 2. Put all downloaded images in `assets/walls`
-3. After that, execute the script `bg_resolution.sh` to organize by screen resolution (`assets/High Resolution/` or `assets/Low Resolution/`). **(require ImageMagick package to run)**
+3. After that, execute the script `bg_resolution.sh` to organize by screen resolution (High Resolution or Low Resolution). **(require ImageMagick package to run)**
+4. Commit and Pull Request
 
 ### Pull Request
  - Please, put author credits here in README
