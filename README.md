@@ -25,7 +25,7 @@ https://wallpaperaccess.com/abstract-linux and https://wallpaperaccess.com/void-
 
 ### Pull Request
  - Please, put author credits here in README
- - No other distros allowed, just Void or Source Linux
+ - Only accepted: Void Linux, Source Linux, Tux and Dark Green Nature/Universe 
 
 ---
 #### Fork history:
