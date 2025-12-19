@@ -1,0 +1,39 @@
+#void linux grub theme
+title-text: ""
+desktop-image: "background.png"
+desktop-color: "#000000"
+terminal-font: "Roboto Regular 16"
+terminal-box: "terminal_box_*.png"
+terminal-left: "0"
+terminal-top: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+terminal-border: "0"
+# Boot menu
++ boot_menu {
+  left = 15%
+  top = 45%
+  width = 55%
+  height = 65%
+  item_font = "Roboto Regular 16"
+  item_color = "green"
+  selected_item_color = "black"
+  icon_width = 24
+  icon_height = 24
+  item_icon_space = 10
+  item_height = 40
+  item_padding = 0
+  item_spacing = 0
+  selected_item_pixmap_style = "select_*.png"
+}
+# Countdown label
+# You can change the name of default starting OS here
++ label {
+  left = 17%
+  top = 41%
+  align = "center"
+  id = "__timeout__"
+  text = "Selected OS will start in %d seconds"
+  color = "green"
+  font = "Roboto Regular 14"
+}

@@ -1,7 +1,10 @@
-# Void artwork
-This repo contains a collection of wallpapers and logos for Gnu/Void linux.
+# void artwork
+This repo contains a collection of
+- wallpapers
+- logos
+- grub themes
 
-WIP!!
+for Gnu/Void linux
 
 **You can find all Backgrounds in `assets/`**
 
@@ -11,9 +14,12 @@ WIP!!
 - https://github.com/Mangeshrex
 - https://alkusin.net/
 - https://www.pixiv.net/en/users/60562229 (raviolimavioli008)
-- And lot of others who posted wallpapers on void's reddit page....
-- Some Wallpapers from:
-https://wallpaperaccess.com/abstract-linux and https://wallpaperaccess.com/void-linux
+- https://github.com/gabriel-russo  
+Some Wallpapers from:
+- https://wallpaperaccess.com/abstract-linux
+- https://wallpaperaccess.com/void-linux
+
+And lot of others who posted artwork on void's reddit page....
 
 ## Contributing:
 
@@ -26,10 +32,3 @@ https://wallpaperaccess.com/abstract-linux and https://wallpaperaccess.com/void-
 ### Pull Request
  - Please, put author credits here in README
  - Only accepted: Void Linux, Source Linux, Tux and Dark Green Nature/Universe 
-
----
-#### Fork history:
-- Origin: https://github.com/siduck76/distro-walls
-- Fork 1: https://github.com/oSoWoSo/Void-Wallpapers
-- Fork 2: https://github.com/gabriel-russo/Void-Wallpapers
----
