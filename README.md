@@ -1,7 +1,10 @@
 # void artwork
-This repo contains a collection of wallpapers and logos for Gnu/Void linux.
+This repo contains a collection of
+- wallpapers
+- logos
+- grub themes
 
-WIP!!
+for Gnu/Void linux
 
 Credits to:
 - https://github.com/siduck76 ( made some walls too :p)
@@ -9,7 +12,7 @@ Credits to:
 - https://github.com/Mangeshrex
 - https://alkusin.net/
 
-And lot of others who posted wallpapers on void's reddit page....
+And lot of others who posted on void's reddit page....
 
 forked from: https://github.com/siduck76/distro-walls
 - and gathered mostly from void linux reddit group.
