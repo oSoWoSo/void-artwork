@@ -12,6 +12,7 @@ for Gnu/Void linux
 Or use [website](https://art.osowoso.org)
 
 ## Credits to:
+- https://github.com/nuclearcodecat (made a wall)
 - https://github.com/siduck76 ( made some walls too :p)
 - https://github.com/mahmoudk1000 (made by Dieggho on deviantart)
 - https://github.com/Mangeshrex
