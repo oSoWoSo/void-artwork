@@ -8,50 +8,41 @@ let galleryImages = [];
 /**
  * Initialize gallery with images
  * @param {string} basePath - Base path to images folder
- * @param {Array} imageConfig - Array of objects with count, ext, and optional startFrom
+ * @param {string[]} files - Filenames to display, e.g. ["001.png", "002.svg"]
  */
-function initGallery(basePath, imageConfig) {
+function initGallery(basePath, files) {
     const gallery = document.getElementById('gallery');
     if (!gallery) return;
 
     galleryImages = [];
-    let imageIndex = 0;
 
-    imageConfig.forEach(config => {
-        const { count, ext, startFrom = 1 } = config;
+    files.forEach((filename, imageIndex) => {
+        const imgPath = `${basePath}${filename}`;
 
-        for (let i = 0; i < count; i++) {
-            const imgNumber = startFrom + i;
-            const paddedNumber = String(imgNumber).padStart(3, '0');
-            const imgPath = `${basePath}${paddedNumber}.${ext}`;
+        // Create gallery item
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.dataset.index = imageIndex;
 
-            // Create gallery item
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
-            item.dataset.index = imageIndex;
+        const img = document.createElement('img');
+        img.src = imgPath;
+        img.alt = filename.replace(/\.[^.]+$/, '');
+        img.loading = 'lazy';
 
-            const img = document.createElement('img');
-            img.src = imgPath;
-            img.alt = `Image ${paddedNumber}`;
-            img.loading = 'lazy';
+        // Handle image load error
+        img.onerror = function() {
+            this.parentElement.style.display = 'none';
+        };
 
-            // Handle image load error
-            img.onerror = function() {
-                this.parentElement.style.display = 'none';
-            };
+        item.appendChild(img);
+        gallery.appendChild(item);
 
-            item.appendChild(img);
-            gallery.appendChild(item);
-
-            // Store image info
-            galleryImages.push({
-                src: imgPath,
-                alt: img.alt,
-                index: imageIndex
-            });
-
-            imageIndex++;
-        }
+        // Store image info
+        galleryImages.push({
+            src: imgPath,
+            alt: img.alt,
+            index: imageIndex
+        });
     });
 
     // Add click listeners to gallery items

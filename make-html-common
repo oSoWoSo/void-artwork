@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+#
+# Shared helpers for building the void-artwork website.
+# Source this file from the other make-html-* scripts.
+#
+# Author: zenobit <zen@duck.com>
+# License: MIT
+#
+
+# Print a step message (green when on a terminal).
+_g() { printf '\033[32m%s\033[0m\n' "$*"; }
+
+# Populate IMG_FILES (array of filenames), IMG_COUNT and IMG_JSON (JSON array
+# string) for an asset sub-directory.
+#
+# Files are grouped by extension (png, jpg, ... svg) and sorted within each
+# group, so the gallery no longer depends on sequential numbering: filenames
+# can be anything (e.g. "01.svg", "wallpaper-01.png") and adding a new file
+# never requires renaming the existing ones.
+list_images() {
+    local dir="$1"
+    local ext f esc
+    IMG_FILES=()
+    for ext in png jpg jpeg webp gif svg; do
+        while IFS= read -r f; do
+            IMG_FILES+=("$f")
+        done < <(find "$dir" -maxdepth 1 -type f -iname "*.$ext" -printf '%f\n' | sort -V)
+    done
+    IMG_COUNT=${#IMG_FILES[@]}
+
+    IMG_JSON='['
+    local first=1
+    for f in "${IMG_FILES[@]}"; do
+        if [ "$first" -eq 1 ]; then first=0; else IMG_JSON+=','; fi
+        esc="${f//\\/\\\\}"
+        esc="${esc//\"/\\\"}"
+        IMG_JSON+="\"$esc\""
+    done
+    IMG_JSON+=']'
+}

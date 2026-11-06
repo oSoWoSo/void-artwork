@@ -8,11 +8,13 @@
 # License: MIT
 #
 
+. "$(dirname "$0")/make-html-common"
+
 _g "Creating lowres.html"
 file=lowres
 title="Low-Res Wallpapers - Void Linux Artwork"
-lowresCount=$(find "assets/$file/" -type f -name "*.png" | wc -l)
-export lowresCount
+list_images "assets/$file"
+lowresCount=$IMG_COUNT
 
 navbar=$(cat << EOF
 <!DOCTYPE html>
@@ -65,7 +67,6 @@ header=$(cat << EOF
             <h2>Low Resolution Wallpapers</h2>
             <p>Optimized wallpapers for lower resolution displays and faster loading</p>
             <div class="gallery-count">
-                <!-- // Change numbers if you add -->
                 <span class="count-badge">${lowresCount} wallpapers</span>
             </div>
         </div>
@@ -149,10 +150,7 @@ footer=$(cat << EOF
     <script src="js/main.js"></script>
     <script src="js/gallery.js"></script>
     <script>
-        // Change numbers if you add
-        initGallery('assets/lowres/', [
-            { count: ${lowresCount}, ext: 'png' }
-        ]);
+        initGallery('assets/lowres/', ${IMG_JSON});
     </script>
 </body>
 </html>
@@ -173,8 +171,7 @@ categories=$(cat << EOF >> index.html
                 <div class="category-icon">🎨</div>
                 <h3>Low-Res Wallpapers</h3>
                 <p>Optimized wallpapers for lower resolution displays</p>
-                <!-- Change this numbers if you add theme -->
-                <div class="category-count" data-path="assets/lowres/" data-counts='[{"count":${lowresCount},"ext":"png"}]'>
+                <div class="category-count" data-count='${lowresCount}' data-path="assets/lowres/">
                     <span class="count-number">${lowresCount}</span> images
                 </div>
                 <a href="lowres.html" class="category-link">View Collection →</a>

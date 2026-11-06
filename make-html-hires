@@ -8,15 +8,13 @@
 # License: MIT
 #
 
+. "$(dirname "$0")/make-html-common"
+
 _g "Creating hires.html"
 file=hires
 title="Hi-Res Wallpapers - Void Linux Artwork"
-# Count hires
-hiresPNG=$(find "assets/$file/" -type f -name "*.png" | wc -l)
-hiresJPG=$(find "assets/$file/" -type f -name "*.jpg" | wc -l)
-hiresJPGstart=$(( hiresPNG + 1 ))
-hiresCount=$(find "assets/$file/" -type f -name "*" | wc -l)
-export hiresPNG hiresJPG hiresJPGstart hiresCount
+list_images "assets/$file"
+hiresCount=$IMG_COUNT
 
 navbar=$(cat << EOF
 <!DOCTYPE html>
@@ -69,7 +67,6 @@ header=$(cat << EOF
             <h2>High Resolution Wallpapers</h2>
             <p>Premium quality wallpapers for your desktop</p>
             <div class="gallery-count">
-                <!-- // Change numbers if you add -->
                 <span class="count-badge">${hiresCount} wallpapers</span>
             </div>
         </div>
@@ -153,11 +150,7 @@ footer=$(cat << EOF
     <script src="js/main.js"></script>
     <script src="js/gallery.js"></script>
     <script>
-        // Change numbers if you add
-        initGallery('assets/hires/', [
-            { count: ${hiresPNG}, ext: 'png' },
-            { count: ${hiresJPG}, ext: 'jpg', startFrom: ${hiresJPGstart} }
-        ]);
+        initGallery('assets/hires/', ${IMG_JSON});
     </script>
 </body>
 </html>
@@ -178,8 +171,7 @@ categories=$(cat << EOF >> index.html
                 <div class="category-icon">🖼️</div>
                 <h3>Hi-Res Wallpapers</h3>
                 <p>High resolution wallpapers for your desktop</p>
-                <!-- Change this numbers if you add theme -->
-                <div class="category-count" data-path="assets/hires/" data-counts='[{"count":${hiresPNG},"ext":"png"},{"count":${hiresJPG},"ext":"jpg","startFrom":${hiresJPGstart}}]'>
+                <div class="category-count" data-count='${hiresCount}' data-path="assets/hires/">
                     <span class="count-number">${hiresCount}</span> images
                 </div>
                 <a href="hires.html" class="category-link">View Collection →</a>
