@@ -34,6 +34,15 @@ And lot of others who posted artwork on void's reddit page or elsewhere
 3. After that, execute the script `bg_resolution.sh` to organize by screen resolution (High Resolution or Low Resolution). **(require ImageMagick package to run)**
 4. Commit and Pull Request
 
+### Adding images
+Just drop the file into the right folder (`assets/hires`, `assets/lowres` or
+`assets/logos`) and run `./create`. The gallery is built from the actual
+directory listing, so:
+- any filename works (`01.png`, `my-wallpaper.png`, ...) — no renaming or
+  renumbering is required, and gaps in the numbering are fine
+- `png`, `jpg`/`jpeg`, `webp`, `gif` and `svg` are picked up automatically, with
+  the file counts on the pages and on `index.html` updated by `./create`
+
 ### Pull Request
  - Please, put author credits here in README
  - Only accepted: Void Linux, Source Linux, Tux and Dark Green Nature/Universe

@@ -8,14 +8,13 @@
 # License: MIT
 #
 
+. "$(dirname "$0")/make-html-common"
+
 _g "Creating logos.html"
 file=logos
 title="Logos - Void Linux Artwork"
-logosPNG=$(find "assets/$file/" -type f -name "*.png" | wc -l)
-logosSVG=$(find "assets/$file/" -type f -name "*.svg" | wc -l)
-logosSVGstart=$(( logosPNG + 1 ))
-logosCount=$(find "assets/$file/" -type f -name "*" | wc -l)
-export logosPNG logosSVG logosSVGstart logosCount
+list_images "assets/$file"
+logosCount=$IMG_COUNT
 
 navbar=$(cat << EOF
 <!DOCTYPE html>
@@ -68,7 +67,6 @@ header=$(cat << EOF
             <h2>Void Linux Logos</h2>
             <p>Official and community logos in various formats</p>
             <div class="gallery-count">
-                <!-- // Change numbers if you add -->
                 <span class="count-badge">${logosCount} logos</span>
             </div>
         </div>
@@ -152,11 +150,7 @@ footer=$(cat << EOF
     <script src="js/main.js"></script>
     <script src="js/gallery.js"></script>
     <script>
-        // Change numbers if you add
-        initGallery('assets/logos/', [
-            { count: ${logosPNG}, ext: 'png' },
-            { count: ${logosSVG}, ext: 'svg', startFrom: ${logosSVGstart} }
-        ]);
+        initGallery('assets/logos/', ${IMG_JSON});
     </script>
 </body>
 </html>
@@ -177,8 +171,7 @@ categories=$(cat << EOF >> index.html
                 <div class="category-icon">⚡</div>
                 <h3>Logos</h3>
                 <p>Official and community Void Linux logos</p>
-                <!-- Change this numbers if you add theme -->
-                <div class="category-count" data-path="assets/logos/" data-counts='[{"count":${logosPNG},"ext":"png"},{"count":${logosSVG},"ext":"svg","startFrom":${logosSVGstart}}]'>
+                <div class="category-count" data-count='${logosCount}' data-path="assets/logos/">
                     <span class="count-number">${logosCount}</span> logos
                 </div>
                 <a href="logos.html" class="category-link">View Collection →</a>

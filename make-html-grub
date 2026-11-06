@@ -8,11 +8,12 @@
 # License: MIT
 #
 
+. "$(dirname "$0")/make-html-common"
+
 _g "Creating grub.html"
 file=grub
 title="GRUB Themes - Void Linux Artwork"
 grubCount=$(find "assets/$file/themes/" -maxdepth 1 -type d -name "voi*" | wc -l)
-export grubCount
 
 start=$(cat << 'EOF'
 <!DOCTYPE html>
@@ -25,7 +26,7 @@ EOF
 )
 
 fillTitle=$(cat << EOF
-    <title>"${title}"</title>
+    <title>${title}</title>
 EOF
 )
 
@@ -498,8 +499,7 @@ categories=$(cat << EOF >> index.html
                 <div class="category-icon">💻</div>
                 <h3>Grub Themes</h3>
                 <p>Custom boot themes for GRUB bootloader</p>
-                <!-- Change this numbers if you add theme -->
-                <div class="category-count" data-path="assets/grub/themes/" data-counts='[{"count":${grubCount},"type":"folders"}]'>
+                <div class="category-count" data-count='${grubCount}' data-path="assets/grub/themes/">
                     <span class="count-number">${grubCount}</span> themes
                 </div>
                 <a href="grub.html" class="category-link">View Collection →</a>

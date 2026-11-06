@@ -8,6 +8,8 @@
 # License: MIT
 #
 
+. "$(dirname "$0")/make-html-common"
+
 _g "Creating rest of index.html"
 file=index
 title="Void Linux Artwork Collection"
