@@ -19,7 +19,8 @@ Or use [website](https://art.osowoso.org)
 - https://alkusin.net/
 - https://www.pixiv.net/en/users/60562229 (raviolimavioli008)
 - https://gitlab.com/Irkiosan
-- https://github.com/gabriel-russo  
+- https://github.com/gabriel-russo
+- https://github.com/nerdyslacker  
 Some Wallpapers from:
 - https://wallpaperaccess.com/abstract-linux
 - https://wallpaperaccess.com/void-linux
